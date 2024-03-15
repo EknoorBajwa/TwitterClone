@@ -1,12 +1,20 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableWithoutFeedbackProperties} from 'react-native';
 
-const Tweet = ({tweet}) => {
+import { TweetType } from '@/types';
+
+type TweetProps = {
+    tweet: TweetType;
+};
+
+const Tweet = ({tweet}: TweetProps) => {
     return (
         <View style={styles.container}>
       <Image src={tweet.user.image} style={styles.userImage}/>
 
       <View style={styles.mainContainer}>
-      <Text style={styles.name}>{tweet.user.name}</Text>
+      <Text style={styles.name}>
+        {tweet.user.name}
+        </Text>
       <Text style = {styles.content}>{tweet.content}</Text>
       </View>
     </View>
